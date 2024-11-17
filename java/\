@@ -1,0 +1,6 @@
+public class LargetElement{
+	public static void main(String[] args) {
+		int[] arr = {2, 5, 1, 3, 0};
+		System.out.print("Largest Element: " + getLargetElement(arr));
+	}
+}
