@@ -2,17 +2,23 @@ import java.util.Arrays;
 
 public class PopulateZeros {
 	public static void populateZeros(int[] arr) {
-		int i = 0;	
-		for(int j = 0; j < arr.length; j++) {
-			if(arr[j] != 0) {
-				while(i < j && arr[i] != 0) {
-					i++;
-				}
-				if(i != j) {
-					arr[i] = arr[j];
-					arr[j] = 0;
-				}
+		int j = -1;
+		int n = arr.length;
+		for(int k = 0; k < n; k++) {
+			if(arr[k] == 0) {
+				j = k;
+				break;	
 			}			
+		}
+		if(j == -1) {
+			return;
+		}
+		for(int i = j + 1; i < n; i++) {
+			if(arr[i] != 0) {
+				arr[j] = arr[i];
+				arr[i] = 0;
+				j++;
+			}
 		}
 	}
 	public static void main(String[] args ){
