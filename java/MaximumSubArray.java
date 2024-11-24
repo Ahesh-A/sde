@@ -2,17 +2,27 @@ public class MaximumSubArray {
 	public static int findMaxSum(int[] arr) {
 		int max = Integer.MIN_VALUE;
 		int sum = 0;
+		int tempStart = 0, start = 0, end = -1;
+
 		for(int i = 0; i < arr.length; i++) {
 			sum += arr[i];
 			if(sum > max) {
 				max = sum;
+				start = tempStart;
+				end = i;
 			}
 
 			if(sum <= 0) {
 				sum = 0;
+				tempStart = i;
 			}
 		}
+		System.out.print("[");
+		for(int i = start; i <= end; i++) {
+			System.out.print(" " + arr[i]);
+		}
 
+		System.out.print(" ]");
 		return max;
 	}
 	public static void main(String[] args) {
