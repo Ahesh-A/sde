@@ -14,11 +14,27 @@ public class CountPairs {
 
 		return res;
 	}
+	public static int count(int[] nums, int start, int mid, int end) {
+		int count = 0;
+		int i = start;
+		int j = mid + 1;
 
-	public void merge(int[] nums, int start, int mid, int end) {
-		int[] temp = int[end - start + 1];
+		while(i <= mid && j <= end) {
+			if(nums[i] > 2 * nums[j]) {
+				count++;
+				j++;
+			} else {
+				i++;
+			}
+		}
 
-		int i = 0, j = mid + 1, k = 0;
+		return count;
+	}
+
+	public static void merge(int[] nums, int start, int mid, int end) {
+		int[] temp = new int[end - start + 1];
+
+		int i = start, j = mid + 1, k = 0;
 
 		while(i <= mid && j <= end){
 			if(nums[i] < nums[j]) {
@@ -31,7 +47,7 @@ public class CountPairs {
 			temp[k++] = nums[i++];
 		}
 		while(j <= end) {
-			temp[j++] = nums[j++];
+			temp[k++] = nums[j++];
 		}
 
 		for(i = start; i <= end; i++) {
@@ -41,7 +57,8 @@ public class CountPairs {
 
 	public static void main(String[] args) {
 		int[] nums = {1, 3, 2, 3, 1};
-		int res = countPairs(nums);
+		int res = countPairs(nums, 0, nums.length - 1);
+		System.out.println(res);
 	}
 
 }
