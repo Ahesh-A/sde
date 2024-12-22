@@ -4,13 +4,13 @@ public class FindSqrt {
 		int high = num / 2;
 
 		while(low <= high) {
-			int mid = low + (high - low) / 2;
+			long  mid = low + (high - low) / 2;
 			long temp = mid * mid;
 
 			if(temp < num) {
-				low = mid + 1;
+				low = (int)mid + 1;
 			} else {
-				high = mid - 1;
+				high = (int)mid - 1;
 			}
 		}
 
