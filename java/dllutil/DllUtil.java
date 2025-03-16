@@ -17,4 +17,11 @@ public class DllUtil {
 	first.next = null;
 	return head;
   }
+
+  public static void printDll(DlNode head) {
+	while(head != null) {
+	  System.out.println(head.data);
+	  head = head.next;
+	}
+  }
 }
