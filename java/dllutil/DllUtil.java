@@ -15,6 +15,7 @@ public class DllUtil {
 	DlNode first = head;
 	head = head.next;
 	first.next = null;
+	head.prev = null;
 	return head;
   }
 
