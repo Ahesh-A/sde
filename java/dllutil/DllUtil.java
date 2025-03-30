@@ -21,7 +21,7 @@ public class DllUtil {
 
   public static void printDll(DlNode head) {
 	while(head != null) {
-	  System.out.println(head.data);
+	  System.out.print(head.data + " ");
 	  head = head.next;
 	}
   }

@@ -21,4 +21,21 @@ public class SllUtil {
 	  temp = temp.next;
 	}
   }
+  public static Node createChildLl(int[] arr) {
+	Node head = new Node(-1);
+	Node temp = head;
+
+	for(int i : arr) {
+	  temp.child = new Node(i);
+	  temp = temp.child;
+	}
+
+	return head.child;
+  }
+  public static void printChildLl(Node head) {
+	while(head != null) {
+	  System.out.println(head.data);
+	  head = head.child;
+	}
+  }
 }
